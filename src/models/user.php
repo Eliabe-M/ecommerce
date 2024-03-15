@@ -1,0 +1,1 @@
+<!-- Classe do usuário contendo o senha, email, nome, função para criar hash da senha, getSenha, getEmail-->

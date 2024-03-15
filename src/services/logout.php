@@ -1,0 +1,1 @@
+<!-- Lógica para deslogar o usuário com session-->
