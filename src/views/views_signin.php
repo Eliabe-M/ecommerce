@@ -7,13 +7,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6 mt-5">
             <h2 class="text-center">Cadastro</h2>
             <form action="../services/signin.php" method="POST">
-                <div class="form-group">
+            <div class="form-group">
                     <label for="nome">Nome:</label>
                     <input type="text" class="form-control" id="nome" name="nome" required>
                 </div>

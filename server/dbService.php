@@ -1,5 +1,4 @@
 <?php
-
 class DBService
 {
     private $conexao;
@@ -7,7 +6,6 @@ class DBService
     {
         $this->conexao = $conexao->conectar();
     }
-
     public function createDB($table, $fields, $values)
     {
         $fieldsStr = implode(',', $fields);
@@ -17,15 +15,13 @@ class DBService
         $stmt = $this->conexao->prepare($query);
         $stmt->execute($values);
     }
-
-    public function readDB($table, $field, $value)
+    public function readDB($table)
     {
-        $query = "SELECT * FROM $table WHERE $field = ?";
+        $query = "SELECT * FROM $table";
         $stmt = $this->conexao->prepare($query);
-        $stmt->execute([$value]);
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-
     public function updateDB($table, $fields, $values, $field, $value)
     {
         $fieldsStr = implode('=?,', $fields) . '=?';
@@ -33,13 +29,17 @@ class DBService
         $stmt = $this->conexao->prepare($query);
         $stmt->execute(array_merge($values, [$value]));
     }
-
     public function deleteDB($table, $field, $value)
     {
         $query = "DELETE FROM $table WHERE $field = ?";
         $stmt = $this->conexao->prepare($query);
         $stmt->execute([$value]);
     }
+    public function getByAtributeDB($table, $attribute, $value) {
+        $query = "SELECT * FROM $table WHERE $attribute = ?";
+        $stmt = $this->conexao->prepare($query);
+        $stmt->execute([$value]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 }
-
 ?>

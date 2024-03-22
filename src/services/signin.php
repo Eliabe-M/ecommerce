@@ -1,5 +1,5 @@
 <?php
-require_once ($_SERVER["DOCUMENT_ROOT"] . '/projeto/ecommerce/server/api/users/create.php');
+require_once ($_SERVER["DOCUMENT_ROOT"] . '/projeto/ecommerce/server/api/users/createUser.php');
 try {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $nome = $_POST['nome'];
